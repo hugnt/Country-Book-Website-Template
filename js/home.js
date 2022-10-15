@@ -158,6 +158,7 @@ function Show_Writers(n)
         `
     }
 }
+
 Show_Writers(allAuthor);
 
 function Show_Books(n,m)
@@ -217,5 +218,7 @@ btn_down.click(function(){
     $(this).parent().parent().toggleClass('show2');
 });
 
-
+$('.slide .slide-show').click(function(){
+    window.location.href='./home01.html'
+});
 

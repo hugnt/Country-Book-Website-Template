@@ -94,6 +94,15 @@ header
     /* border-bottom: .5px solid #808080; */
     border-bottom: .5px solid #c8b197;
 }
+.load_menuItem
+{
+    content: '';
+    position: absolute;
+    bottom: 0;left: 0;right: 0;
+    background-color:#8f8f8f49 ;
+    border-bottom: 2px solid #fff;
+}
+
 nav
 {
     width: 90%;

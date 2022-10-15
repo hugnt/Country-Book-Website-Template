@@ -1,7 +1,47 @@
 var cnt=0;
 $(document).ready(function() { 
     
-    $('.bi').toggle(
+    //move page
+    console.log(window.location.pathname);
+    var pathName=window.location.pathname;
+    const Array_path=pathName.split("/");
+    var mainpath=Array_path[Array_path.length-1];
+    var subName=mainpath.substring(0,mainpath.length-5);
+    console.log(subName);
+    if(subName.includes("01"))
+    {
+        subName=subName.replace("01","\0");
+    }
+    if(subName.includes("_"))
+    {
+        subName=subName.replace("_"," ");
+    }
+    console.log("subName:",subName);
+    $(".menu-item").each(function(){
+        // console.log($(this).text());
+        if($(this).find(">a").text().localeCompare(subName)==0)
+        {
+            $(this).toggleClass("load_menuItem");
+        }
+    });
+        
+
+    // console.log(window.location.origin);
+    $(".nav-bar .menu-item").click(function(){
+
+        let itemName=$(this).find(">a").text();
+        if(itemName.includes(" "))
+        {
+            itemName=itemName.replace(" ","_");
+        }
+        let stringURL="./"+itemName+".html";
+        window.location.href=stringURL;
+        // window.open(stringURL, "_blank");
+        console.log(stringURL);
+
+    });
+    //
+    $('.bi-lightbulb-off-fill').toggle(
         function(){
             $("*").addClass("light_mode_title");           
         },
@@ -10,7 +50,7 @@ $(document).ready(function() {
         }
     );
     //click-menu_item event
-    $('.bi').click(
+    $('.bi-lightbulb-off-fill').click(
         function()
         {
             cnt++;
@@ -93,7 +133,7 @@ $(document).ready(function() {
 }); 
 
 //Turn dark mode or light mode 
-const darkMode=document.querySelector('.bi')
+const darkMode=document.querySelector('.bi-lightbulb-off-fill')
 darkMode.onclick=function(){
     
     const $=document.querySelector.bind(document);
