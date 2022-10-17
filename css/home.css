@@ -514,6 +514,7 @@ background: -moz-linear-gradient(84deg,rgba(200,177,151,0.42) 0%, rgba(19,19,19,
     border-radius: 2rem;
     overflow: hidden;
     height: 20rem;
+    width: 100%;
 }
 .book-zone .book-item img
 {

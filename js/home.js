@@ -63,7 +63,7 @@ function Show_Banners(n)
     for(var i = 1; i <= n; i++)
     {
         $('.slide-items .list-items').innerHTML+=`
-        <li class="item">
+        <li class="item"> 
             <div class="img-box">
                 <img src="${books[i-1].ava}" alt="" class="img-item">
             </div>
@@ -171,7 +171,7 @@ function Show_Books(n,m)
         {
             no+=1;
             $('.book-lists').innerHTML+=`
-            <div class="book-item">
+            <div class="book-item" data-book="${i}_${j}">
             <div class="img-box"><img src="../images/${i}/${j}.jpg" alt="" class="book-img"></div>
                 <span class="author desc">${books[i-1].author}</span>
                 <span class="name main-title">${books[i-1].Poem[j-1]}</span>

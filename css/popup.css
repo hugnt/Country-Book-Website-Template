@@ -69,7 +69,7 @@
   overflow: hidden;
   top:0; left:0;
   /* background:red; */
-  background-image: var(--beforeBack,url("./author/1.jpg"));
+  background-image: var(--beforeBack,url("../images/author_ava/Alexander_Puskin.png"));
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: -10rem;

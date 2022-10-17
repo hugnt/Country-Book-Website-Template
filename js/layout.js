@@ -1,5 +1,6 @@
-var cnt=0;
-$(document).ready(function() { 
+ var cnt=0;
+ var $j = jQuery.noConflict();
+ $j(document).ready(function() { 
     
     //move page
     console.log(window.location.pathname);
@@ -17,19 +18,19 @@ $(document).ready(function() {
         subName=subName.replace("_"," ");
     }
     console.log("subName:",subName);
-    $(".menu-item").each(function(){
-        // console.log($(this).text());
-        if($(this).find(">a").text().localeCompare(subName)==0)
+    $j(".menu-item").each(function(){
+        // console.log($j(this).text());
+        if($j(this).find(">a").text().localeCompare(subName)==0)
         {
-            $(this).toggleClass("load_menuItem");
+            $j(this).toggleClass("load_menuItem");
         }
     });
         
 
     // console.log(window.location.origin);
-    $(".nav-bar .menu-item").click(function(){
+    $j(".nav-bar .menu-item").click(function(){
 
-        let itemName=$(this).find(">a").text();
+        let itemName=$j(this).find(">a").text();
         if(itemName.includes(" "))
         {
             itemName=itemName.replace(" ","_");
@@ -41,46 +42,46 @@ $(document).ready(function() {
 
     });
     //
-    $('.bi-lightbulb-off-fill').toggle(
+    $j('.bi-lightbulb-off-fill').toggle(
         function(){
-            $("*").addClass("light_mode_title");           
+            $j("*").addClass("light_mode_title");           
         },
         function(){
-            $("*").removeClass("light_mode_title");
+            $j("*").removeClass("light_mode_title");
         }
     );
     //click-menu_item event
-    $('.bi-lightbulb-off-fill').click(
+    $j('.bi-lightbulb-off-fill').click(
         function()
         {
             cnt++;
-            $('nav .menu-item').hover(function(){
-                $(this).toggleClass("changed");
-                $(this).find('a').toggleClass("bolder");
+            $j('nav .menu-item').hover(function(){
+                $j(this).toggleClass("changed");
+                $j(this).find('a').toggleClass("bolder");
             });   
         if(cnt%2!=0)
         {
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active1')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active1')==true)
                 {
                     console.log("checkin_2");
-                    $(this).removeClass("active1");
-                    $(this).find('a').removeClass("active1_1");
-                    $(this).addClass("active2");
-                    $(this).find('a').addClass("active2_1");
+                    $j(this).removeClass("active1");
+                    $j(this).find('a').removeClass("active1_1");
+                    $j(this).addClass("active2");
+                    $j(this).find('a').addClass("active2_1");
                 }
             });
         }
         else
         {
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active2')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active2')==true)
                 {
                     console.log("checkin_1");
-                    $(this).removeClass("active2");
-                    $(this).find('a').removeClass("active2_1");
-                    $(this).addClass("active1");
-                    $(this).find('a').addClass("active1_1");
+                    $j(this).removeClass("active2");
+                    $j(this).find('a').removeClass("active2_1");
+                    $j(this).addClass("active1");
+                    $j(this).find('a').addClass("active1_1");
                 }
             });
         }
@@ -88,51 +89,59 @@ $(document).ready(function() {
         }
     );
       //click-menu_item event
-    $("nav .menu-item").click(function(){
+    $j("nav .menu-item").click(function(){
         if(cnt%2!=0)
         {
             console.log(cnt);
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active1')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active1')==true)
                 {
                     console.log("checkin_2");
-                    $(this).addClass("active2");
-                    $(this).find('a').addClass("active2_1");
+                    $j(this).addClass("active2");
+                    $j(this).find('a').addClass("active2_1");
                 }
             });
-            $("nav .menu-item").removeClass("active2");
-            $("nav .menu-item").find('a').removeClass("active2_1");
-            $("nav .menu-item").removeClass("active1");
-            $("nav .menu-item").find('a').removeClass("active1_1");
-            $(this).addClass("active2");
-            $(this).find('a').addClass("active2_1");
+            $j("nav .menu-item").removeClass("active2");
+            $j("nav .menu-item").find('a').removeClass("active2_1");
+            $j("nav .menu-item").removeClass("active1");
+            $j("nav .menu-item").find('a').removeClass("active1_1");
+            $j(this).addClass("active2");
+            $j(this).find('a').addClass("active2_1");
         }
         else
         {
             console.log(cnt);
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active2')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active2')==true)
                 {
                     console.log("checkin_1");
-                    $(this).addClass("active1");
-                    $(this).find('a').addClass("active1_1");
+                    $j(this).addClass("active1");
+                    $j(this).find('a').addClass("active1_1");
                 }
             });
-            $("nav .menu-item").removeClass("active2");
-            $("nav .menu-item").find('a').removeClass("active2_1");
-            $("nav .menu-item").removeClass("active1");
-            $("nav .menu-item").find('a').removeClass("active1_1");
-            $(this).addClass("active1");
-            $(this).find('a').addClass("active1_1");
+            $j("nav .menu-item").removeClass("active2");
+            $j("nav .menu-item").find('a').removeClass("active2_1");
+            $j("nav .menu-item").removeClass("active1");
+            $j("nav .menu-item").find('a').removeClass("active1_1");
+            $j(this).addClass("active1");
+            $j(this).find('a').addClass("active1_1");
         }
     });
 
+    $j('.book-item').click(function(){ 
+        var selectedBook  = $j(this).attr("data-book");
+        localStorage.setItem("selectedBook",selectedBook);
+        console.log(selectedBook);
+        window.open('./bookmark_reading.html', '_blank');
+        // window.location.href = './bookmark_reading.html'
+    });
 
 
 
 }); 
 
 //Turn dark mode or light mode 
+
 const darkMode=document.querySelector('.bi-lightbulb-off-fill')
 darkMode.onclick=function(){
     
@@ -186,9 +195,12 @@ darkMode.onclick=function(){
     $('.logo span').classList.toggle('light_mode_title');
     $('body').classList.toggle('light_mode_body');
 
+    
 
 
 }
+
+
 
 //Data
 // #region data 
@@ -452,6 +464,8 @@ const booksData=[
         ]
     }
 ]
+
+
 //#endregion
 //Data accesse;
 export {booksData};

@@ -10,6 +10,10 @@
     transition: all .35s;
     
 }
+li,.book-item
+{
+    cursor: pointer;
+}
 body
 {
     background-color: #000;
@@ -42,6 +46,14 @@ body
 .w-45
 {
     width: 45%;
+}
+.w-40
+{
+    width: 40%;
+}
+.w-30
+{
+    width: 30%;
 }
 .w-25
 {

@@ -130,10 +130,20 @@ background: -moz-linear-gradient(270deg,#004c7c 0%, rgba(255,255,255,0.48) 70%)!
 
     /* margin-right: 3rem; */
 }
-.bg-img
+.bg-img1
 {
     background: url('../images/community/bg-mtw1.png') 100% 100% no-repeat!important;
     background-size: cover!important;
+}
+.bg-img2
+{
+    background: url('../images/home01/png/2.png') 100% 100% no-repeat!important;
+    background-size: contain!important;
+}
+.bg-img3
+{
+    background: url('../images/home01/png/3.png') 100% 100% no-repeat!important;
+    background-size: contain!important;
 }
 .slide-bar .list-items .item:hover
 {
@@ -458,7 +468,7 @@ background: -moz-linear-gradient(270deg,#004c7c 0%, rgba(255,255,255,0.48) 70%)!
 
 .item .common_book .img-book
 {
-    width:25%;
+    width:40%;
     height: 10rem;
     border-radius:1rem ;
     overflow: hidden;
