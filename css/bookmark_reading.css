@@ -104,7 +104,11 @@ input,textarea:focus
     border-bottom:1px solid #c8b197 ;
     border-radius: 2rem;
     padding: 1rem;
+<<<<<<< HEAD
     margin: 0 2rem;
+=======
+    margin: 0 9rem;
+>>>>>>> f339dcb42f1f51b7336dad64a3430a29a71cd0a0
     margin-bottom: 3rem;
 }
 .section-main .support-box .note span
@@ -122,6 +126,7 @@ input,textarea:focus
 {
     margin-bottom: 2rem;
 }
+<<<<<<< HEAD
 
 
 /* responsive */
@@ -144,3 +149,5 @@ input,textarea:focus
         min-height: 40rem;
     }
 }
+=======
+>>>>>>> f339dcb42f1f51b7336dad64a3430a29a71cd0a0

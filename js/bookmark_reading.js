@@ -16,6 +16,10 @@ $(document).ready(function(){
     $('.goHome').click(function(){
         window.location.href = '../view/bookmark.html'
     });
+<<<<<<< HEAD
 });
 
 
+=======
+});
+>>>>>>> f339dcb42f1f51b7336dad64a3430a29a71cd0a0

@@ -22,7 +22,11 @@
         // console.log($j(this).text());
         if($j(this).find(">a").text().localeCompare(subName)==0)
         {
+<<<<<<< HEAD
             $j(this).addClass("load_menuItem");
+=======
+            $j(this).toggleClass("load_menuItem");
+>>>>>>> f339dcb42f1f51b7336dad64a3430a29a71cd0a0
         }
     });
         
@@ -495,8 +499,11 @@ const booksData=[
 ]
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f339dcb42f1f51b7336dad64a3430a29a71cd0a0
 //#endregion
 //Data accesse;
 export {booksData};
