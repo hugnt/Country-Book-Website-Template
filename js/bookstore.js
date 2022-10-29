@@ -203,6 +203,7 @@ function addCart(i,j){
     // const shopIcons=$$('.bi-cart')
 
     const cart=$('.cart-content')
+    // const cart=document.createElement('.cart-content')
     var string=`<div class="cart-${i}${j} cart-box">
         <img src="../images/${i}/${j}.jpg" alt="" class="cart-img">
         <div class="detail-box">
@@ -213,7 +214,7 @@ function addCart(i,j){
         <i onclick="removeCart(${i},${j})" class="bi bi-trash-fill cart-remove" ></i>
         </div>`
     if(!cart.contains($(`.cart-${i}${j}`))){
-        cart.innerHTML+=string
+        cart.innerHTML+=(string)
         console.log(1)
     }
     else{
@@ -284,55 +285,29 @@ recognition.addEventListener('result', e => {
 
     // document.getElementById("p").innerHTML = transcript;
     console.log(transcript);
-    if(transcript.toLowerCase()=='thứ nhất'.toLowerCase()){
-        $('select').value=1
-        addAllBook()
-        findBookByAuthor(1);
-    }
-    else if(transcript.toLowerCase()=='thứ hai'.toLowerCase()){
-        $('select').value=2
-        addAllBook()
-        findBookByAuthor(2);
-    }
-    else if(transcript.toLowerCase()=='thứ ba'.toLowerCase()){
-        $('select').value=3
-        addAllBook()
-        findBookByAuthor(3);
-    }
-    else if(transcript.toLowerCase()=='thứ tư'.toLowerCase()){
-        $('select').value=4
-        addAllBook()
-        findBookByAuthor(4);
-    }
-    else if(transcript.toLowerCase()=='thứ năm'.toLowerCase()){
-        $('select').value=5
-        addAllBook()
-        findBookByAuthor(5);
-    }
-    else if(transcript.toLowerCase()=='thứ sáu'.toLowerCase()){
-        $('select').value=6
-        addAllBook()
-        findBookByAuthor(6);
-    }
-    else if(transcript.toLowerCase()=='tất cả'.toLowerCase()){
-        $('select').value=0
-        addAllBook()
-    }
-    else if(transcript.toLowerCase()=='đóng mua'.toLowerCase()){
+    var authorFind=['tất cả','thứ nhất','thứ hai','thứ ba','thứ tư','thứ năm','thứ sáu']
+    authorFind.forEach((item,index)=>{
+        if(transcript.toLowerCase().includes(authorFind[index].toLowerCase())){
+            $('select').value=index
+            addAllBook()
+            findBookByAuthor(index);
+        }
+    })
+    if(transcript.toLowerCase()=='đóng mua'.toLowerCase()){
         $('.cart').classList.remove('active')
     }
     else if(transcript.toLowerCase()=='mở mua'.toLowerCase()){
         $('.cart').classList.add('active')
     }
     for(var i=0;i<66;i++){
-        if(transcript.toLowerCase()==`Mở sách số ${i+1}`.toLowerCase()){
+        if(transcript.toLowerCase().includes(`Mở sách số ${i+1}`.toLowerCase())){
             $$('.bi-balloon-heart')[i].click()
         }
-        else if(transcript.toLowerCase()==`Mua sách số ${i+1}`.toLowerCase()){
+        else if(transcript.toLowerCase().includes(`Mua sách số ${i+1}`.toLowerCase())){
             $$('.bi-cart')[i].click()
         }
     }
-    if(transcript.toLowerCase()=='đóng sách'){
+    if(transcript.toLowerCase().includes('đóng sách')){
         $('.bi-x-circle').click()
     }
     // else{
@@ -429,7 +404,7 @@ function popup(i,j){
 </div> <!-- end container -->
 `
 
-$('.hero').style.setProperty('--beforeBack',`url('./author/${i}.jpg')`)
+$('.hero').style.setProperty('--beforeBack',`url('../images/author/${i}.jpg')`)
 
 }
 

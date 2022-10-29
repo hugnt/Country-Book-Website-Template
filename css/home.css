@@ -248,38 +248,34 @@
     padding: 2rem;
     margin-left: 1rem;
     cursor: pointer;
+    text-align: center;
 }
 .search-box .btn-go:hover
 {
-
-
-  animation: shake 0.5s;
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
+    transform: scale(1.1);
 }
 .search-box .btn-go:hover span
 {
-    
+    color: #21394f;
+    font-weight: bolder;
+    letter-spacing: .1rem;
 }
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
-
 
 .search-box .btn-go span
 {
     color: #000;
     font-weight: bolder;
+}
+.bg-transparent-solid
+{
+    border-radius: 2rem!important;
+    background: none!important;
+    border: 1px solid #004c7c !important;
+    background-color: transparent!important;
+}
+.select-option-light-mode {
+    background: none!important;
+    background-color: #fff!important;
 }
 /* #endregion */
 
@@ -514,6 +510,7 @@ background: -moz-linear-gradient(84deg,rgba(200,177,151,0.42) 0%, rgba(19,19,19,
     border-radius: 2rem;
     overflow: hidden;
     height: 20rem;
+    width: 100%;
 }
 .book-zone .book-item img
 {
@@ -536,3 +533,113 @@ background: -moz-linear-gradient(84deg,rgba(200,177,151,0.42) 0%, rgba(19,19,19,
     margin:.5rem 0;
 }
 /* #endregion */
+
+
+
+/* responsive */
+
+@media screen and (max-width: 1440px) {
+    .section-01 .container {
+        display: block;
+    }
+    .section-01 .left-content, .right-content{
+        width: 100%;
+        margin-left: 0;
+        margin-bottom:  5rem;
+    }
+    .section-01 .left-content .slide .slide-show {
+        height: 30rem;
+    }
+   
+    .right-content .list-writers {
+        width: 100%;
+    }
+    .list-writers .writer-item {
+        min-width: 30%;
+    }
+    .section-01 .left-content .slide .slide-items {
+        width: 100%;
+    }
+    .section-01 .left-content .slide .slide-items .list-items
+    {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    .section-01 .left-content .slide .slide-items .list-items .item {
+        display: block;
+        
+    }
+    .section-01 .left-content .slide .slide-items .list-items .item {
+    
+        margin-bottom: 1.2rem;
+    }
+    .author-name{
+        font-size: 1.3rem!important;
+        display: block;
+        margin-top: 1.2rem;
+    }
+    .book-zone .book-item {
+        width: 21%;
+    }
+ 
+    .rq-item .book
+    {
+        width: 70%!important;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .slide-show .head-banner{
+        top: auto;
+    }
+    .slide-show .big-title{
+        font-size: 3rem;
+    }
+    .list-writers .writer-item {
+        min-width: 30%;
+    }
+    .section-01 .left-content .slide .slide-show {
+        height: 20rem;
+    }
+    .book-zone .book-item {
+        width: 45%;
+    }
+    .rq-item .book
+    {
+        width: 50%!important;
+    }
+    .search-box{
+        /* display: none; */
+        margin-top: 3rem;
+        height: auto;
+    }
+    .search-box .select-option {
+        display: none;
+    }
+    .search-box .typing {
+       width: 100%;
+    }
+
+
+}
+@media screen and (max-width: 600px) {
+    .section-01 .left-content .slide .slide-items {
+        display: none;
+    }
+    .list-writers .writer-item {
+        min-width: 100%;
+    }
+    .rq-item .book
+    {
+        width: 70%!important;
+    }
+    .book-zone .book-item {
+        width: 100%;
+    }
+ 
+    .last-request-box .list-requests .rq-item .icon-star {
+        display: none;
+    }
+
+}

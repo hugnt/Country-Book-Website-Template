@@ -1,5 +1,6 @@
-var cnt=0;
-$(document).ready(function() { 
+ var cnt=0;
+ var $j = jQuery.noConflict();
+ $j(document).ready(function() { 
     
     //move page
     console.log(window.location.pathname);
@@ -17,19 +18,19 @@ $(document).ready(function() {
         subName=subName.replace("_"," ");
     }
     console.log("subName:",subName);
-    $(".menu-item").each(function(){
-        // console.log($(this).text());
-        if($(this).find(">a").text().localeCompare(subName)==0)
+    $j(".menu-item").each(function(){
+        // console.log($j(this).text());
+        if($j(this).find(">a").text().localeCompare(subName)==0)
         {
-            $(this).toggleClass("load_menuItem");
+            $j(this).addClass("load_menuItem");
         }
     });
         
 
     // console.log(window.location.origin);
-    $(".nav-bar .menu-item").click(function(){
+    $j(".nav-bar .menu-item").click(function(){
 
-        let itemName=$(this).find(">a").text();
+        let itemName=$j(this).find(">a").text();
         if(itemName.includes(" "))
         {
             itemName=itemName.replace(" ","_");
@@ -41,98 +42,129 @@ $(document).ready(function() {
 
     });
     //
-    $('.bi-lightbulb-off-fill').toggle(
+    $j('.bi-lightbulb-off-fill').toggle(
         function(){
-            $("*").addClass("light_mode_title");           
+            $j("*").addClass("light_mode_title");           
         },
         function(){
-            $("*").removeClass("light_mode_title");
+            $j("*").removeClass("light_mode_title");
         }
     );
     //click-menu_item event
-    $('.bi-lightbulb-off-fill').click(
+    $j('.bi-lightbulb-off-fill').click(
         function()
         {
+            $j('nav .menu-item').removeClass("load_menuItem");
             cnt++;
-            $('nav .menu-item').hover(function(){
-                $(this).toggleClass("changed");
-                $(this).find('a').toggleClass("bolder");
+            $j('nav .menu-item').hover(function(){
+                $j(this).toggleClass("changed");
+                $j(this).find('a').toggleClass("bolder");
             });   
         if(cnt%2!=0)
         {
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active1')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active1')==true)
                 {
                     console.log("checkin_2");
-                    $(this).removeClass("active1");
-                    $(this).find('a').removeClass("active1_1");
-                    $(this).addClass("active2");
-                    $(this).find('a').addClass("active2_1");
+                    $j(this).removeClass("active1");
+                    $j(this).find('a').removeClass("active1_1");
+                    $j(this).addClass("active2");
+                    $j(this).find('a').addClass("active2_1");
                 }
+
+                // console.log($j(this).text());
+                if($j(this).find(">a").text().localeCompare(subName)==0)
+                {
+                    $j(this).addClass("active2");
+                }
+
             });
         }
         else
         {
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active2')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active2')==true)
                 {
                     console.log("checkin_1");
-                    $(this).removeClass("active2");
-                    $(this).find('a').removeClass("active2_1");
-                    $(this).addClass("active1");
-                    $(this).find('a').addClass("active1_1");
+                    $j(this).removeClass("active2");
+                    $j(this).find('a').removeClass("active2_1");
+                    $j(this).addClass("active1");
+                    $j(this).find('a').addClass("active1_1");
                 }
+
+                  // console.log($j(this).text());
+                  if($j(this).find(">a").text().localeCompare(subName)==0)
+                  {
+                      $j(this).addClass("active1");
+                  }
             });
         }
             
         }
     );
       //click-menu_item event
-    $("nav .menu-item").click(function(){
+    $j("nav .menu-item").click(function(){
         if(cnt%2!=0)
         {
             console.log(cnt);
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active1')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active1')==true)
                 {
                     console.log("checkin_2");
-                    $(this).addClass("active2");
-                    $(this).find('a').addClass("active2_1");
+                    $j(this).addClass("active2");
+                    $j(this).find('a').addClass("active2_1");
                 }
             });
-            $("nav .menu-item").removeClass("active2");
-            $("nav .menu-item").find('a').removeClass("active2_1");
-            $("nav .menu-item").removeClass("active1");
-            $("nav .menu-item").find('a').removeClass("active1_1");
-            $(this).addClass("active2");
-            $(this).find('a').addClass("active2_1");
+            $j("nav .menu-item").removeClass("active2");
+            $j("nav .menu-item").find('a').removeClass("active2_1");
+            $j("nav .menu-item").removeClass("active1");
+            $j("nav .menu-item").find('a').removeClass("active1_1");
+            $j(this).addClass("active2");
+            $j(this).find('a').addClass("active2_1");
         }
         else
         {
             console.log(cnt);
-            $( "nav .menu-item" ).each(function( index ) {
-                if($(this).hasClass('active2')==true)
+            $j( "nav .menu-item" ).each(function( index ) {
+                if($j(this).hasClass('active2')==true)
                 {
                     console.log("checkin_1");
-                    $(this).addClass("active1");
-                    $(this).find('a').addClass("active1_1");
+                    $j(this).addClass("active1");
+                    $j(this).find('a').addClass("active1_1");
                 }
             });
-            $("nav .menu-item").removeClass("active2");
-            $("nav .menu-item").find('a').removeClass("active2_1");
-            $("nav .menu-item").removeClass("active1");
-            $("nav .menu-item").find('a').removeClass("active1_1");
-            $(this).addClass("active1");
-            $(this).find('a').addClass("active1_1");
+            $j("nav .menu-item").removeClass("active2");
+            $j("nav .menu-item").find('a').removeClass("active2_1");
+            $j("nav .menu-item").removeClass("active1");
+            $j("nav .menu-item").find('a').removeClass("active1_1");
+            $j(this).addClass("active1");
+            $j(this).find('a').addClass("active1_1");
         }
     });
 
+    $j('.book-item').click(function(){ 
+        var selectedBook  = $j(this).attr("data-book");
+        localStorage.setItem("selectedBook",selectedBook);
+        console.log(selectedBook);
+        window.open('./bookmark_reading.html', '_blank');
+        // window.location.href = './bookmark_reading.html'
+    });
 
+
+    // Response
+    $j('.btn-menu').click(function(){
+        // $j(this).css("pointer-events","none");
+        $j('.icon-bar:nth-of-type(1)').toggleClass('y-down');
+        $j('.icon-bar:nth-of-type(2)').toggleClass('y-0');
+        $j('.icon-bar:nth-of-type(3)').toggleClass('y-up');
+        $j('.menu-zone').toggleClass("d-block-i");
+    });
 
 
 }); 
 
 //Turn dark mode or light mode 
+
 const darkMode=document.querySelector('.bi-lightbulb-off-fill')
 darkMode.onclick=function(){
     
@@ -186,9 +218,12 @@ darkMode.onclick=function(){
     $('.logo span').classList.toggle('light_mode_title');
     $('body').classList.toggle('light_mode_body');
 
+    
 
 
 }
+
+
 
 //Data
 // #region data 
@@ -234,7 +269,8 @@ const booksData=[
             '22k',
             '10k',
             '78k'
-        ]
+        ],
+        des:'Samuel Langhorne Clemens, known by his pen name Mark Twain, was an American writer, humorist, entrepreneur, publisher, and lecturer. He was lauded as the "greatest humorist [the United States] has produced’, and william Faulkner called him “the father of American literature”. His novels include The Adventures of Tom Sawyer (1876) and its sequel, the Adventures of Huckleberry Finn (1884), the latter often called “The Great American Novel”.'
     },
     {
         author:'Fyodor Tyutchev',
@@ -277,7 +313,8 @@ const booksData=[
             '22k',
             '10k',
             '78k'
-        ]
+        ],
+        des:'Fyodor Tyutchev, in full Fyodor Ivanovich Tyutchev, Tyutchev also spelled Tiutchev, is a Russian writer who was remarkable both as a highly original philosophic poet and as a militant Slavophile, and whose whole literary output constitutes a struggle to fuse political passion with poetic imagination.'
     },
     {
         author:'Alexander Puskin',
@@ -320,7 +357,8 @@ const booksData=[
             '22k',
             '10k',
             '78k'
-        ]
+        ],
+        des:'Alexander Sergeyevich Puskin was a Russian poet, playwright, and novelist of the Romantic era. He is considered by many to be the greatest Russian poet and the founder of modern Russian literature.'
     },
     {
         author:'Mikhail Lermontov',
@@ -363,7 +401,8 @@ const booksData=[
             '22k',
             '10k',
             '78k'
-        ]
+        ],
+        des:'Mikhail Yuryevich Lermontov was a Russian Romantic writer, poet and painter, sometimes called "the poet of the Caucasus", the most important Russian poet after Alexander Pushkin is death in 1837 and the greatest figure in Russian Romanticism. His influence on later Russian literature is still felt in modern times, not only through his poetry, but also through his prose, which founded the tradition of the Russian psychological novel.'
     },
     {
         author:'Karolina Pavlova',
@@ -406,7 +445,8 @@ const booksData=[
             '22k',
             '10k',
             '78k'
-        ]
+        ],
+        des:'Karolina Karlovna Pavlova was a 19th-century Russian poet and novelist. Karolina Pavlova finished her only novel, A Double Life, in 1848. It is a ten-chapter novel that mixes prose and poetry to illustrate the duality of women and of members of high society.'
     },
     {
         author:'Khomyakov Avtoportret',
@@ -449,9 +489,14 @@ const booksData=[
             '22k',
             '10k',
             '78k'
-        ]
+        ],
+        des:'Aleksey Stepanovich Khomyakov was a Russian theologian, philosopher, poet and amateur artist. He co-founded the Slavophile movement along with Ivan Kireyevsky, and he became one of its most distinguished theoreticians.'
     }
 ]
+
+
+
+
 //#endregion
 //Data accesse;
 export {booksData};

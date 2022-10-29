@@ -11,7 +11,7 @@ var booksname=[
         'My Book Cover',
         'Think OutSide',
         'Catcher In Rye',
-        'Your Book Cover',
+        'YourBook Cover',
         'Booth'
     ],
     [
@@ -23,7 +23,7 @@ var booksname=[
         'Blood Water'
     ],
     [
-        'Lightness Falling',
+        'Lightness Fall',
         'From Ash',
         'Born In Blames',
         'Red Right',
@@ -47,7 +47,7 @@ var booksname=[
         'Red Right'
     ],
     [
-        'Your Book Cover',
+        'YourBook Cover',
         'Booth',
         'Fortress Blood',
         'Blood Water',
@@ -104,7 +104,6 @@ authors.forEach((item,index)=>{
        
         var voices = speechSynthesis.getVoices();
         let utterance = new SpeechSynthesisUtterance(`${title[index]} was born in ${born[index]} and died in ${died[index]}`);
-        utterance.voice = voices[13];
         speechSynthesis.speak(utterance);
 
         // function speakVoice() {

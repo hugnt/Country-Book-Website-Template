@@ -130,10 +130,20 @@ background: -moz-linear-gradient(270deg,#004c7c 0%, rgba(255,255,255,0.48) 70%)!
 
     /* margin-right: 3rem; */
 }
-.bg-img
+.bg-img1
 {
     background: url('../images/community/bg-mtw1.png') 100% 100% no-repeat!important;
     background-size: cover!important;
+}
+.bg-img2
+{
+    background: url('../images/home01/png/2.png') 100% 100% no-repeat!important;
+    background-size: contain!important;
+}
+.bg-img3
+{
+    background: url('../images/home01/png/3.png') 100% 100% no-repeat!important;
+    background-size: contain!important;
 }
 .slide-bar .list-items .item:hover
 {
@@ -145,7 +155,7 @@ background: -moz-linear-gradient(270deg,#004c7c 0%, rgba(255,255,255,0.48) 70%)!
 .slide-bar .list-items .item>span:first-child
 {
     display: block;
-    font-size: 2.4rem;
+    font-size: 2rem;
 }
 
 .item .img-item
@@ -458,7 +468,7 @@ background: -moz-linear-gradient(270deg,#004c7c 0%, rgba(255,255,255,0.48) 70%)!
 
 .item .common_book .img-book
 {
-    width:25%;
+    width:40%;
     height: 10rem;
     border-radius:1rem ;
     overflow: hidden;
@@ -761,3 +771,69 @@ background: -moz-linear-gradient(270deg,#004c7c 0%, rgba(255,255,255,0.48) 70%)!
     border-radius: 50%;
 }
 /* #endregion */
+
+
+
+/* responsive */
+@media (max-width:1480px){
+    .container {
+        display: block!important;
+    }
+    .main-content, .aside-content{
+        width: 100%;
+    }
+    .aside-content{
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+    }
+    .recommend-zone, .top-readers{
+        margin: 5rem 0;
+        width: 45%;
+        
+    }
+}
+@media (max-width:1090px){
+    .slide-bar .list-items {
+        display: block;
+    }
+    .slide-bar .list-items .item{
+        width: 90%;
+        margin: auto;
+        pointer-events: none;
+        margin-bottom: 4rem;
+
+    }
+    #author{
+        height: auto;
+    }
+    .item .img-item{
+        width: 60%;
+    }
+    .item .common_book{
+        display: block;
+    }
+    .item .common_book .img-book {
+        margin: auto;
+        height: 20rem;
+        margin-bottom: 4rem;
+    }
+    .friends, .category, .century{
+        display: none!important;
+    }
+    .search-box .typing{
+        width: 100%;
+    }
+
+}
+@media (max-width:800px){
+    .aside-content{
+        display: block;
+
+    }
+    .recommend-zone, .top-readers{
+        margin: 5rem auto;
+        width: 90%;
+        
+    }
+}

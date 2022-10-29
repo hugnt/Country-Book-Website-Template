@@ -157,6 +157,7 @@ font-family: 'Courier New', Courier, monospace;
 
 /*Css a card*/
 .product{
+    margin-left: 1rem;
   width: 99%;
   height: 50rem;
   /* border: 1px solid #fff; */
@@ -194,12 +195,26 @@ a
     width: 23%;
     height: 29rem;
     position: relative;
-    box-shadow: 0 3px 8px #dfdfdf;
+    box-shadow: 0 6px 16px #dfdfdf;
     margin: 50px auto;
     background: black;
     border-radius: 3rem;
     transition: .2s linear;
+    animation-name: boxShadow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite
     /* border: 1px solid yellow; */
+}
+@keyframes boxShadow {
+    0%{
+        box-shadow: 0 10px 20px #dfdfdf;
+    }
+    50%{
+        box-shadow: 0 3px 8px #dfdfdf;
+    }
+    100%{
+        box-shadow: 0 10px 20px #dfdfdf;
+    }
 }
 .product-card:hover{
     cursor: pointer;
@@ -219,7 +234,7 @@ a
 }
 
 .product-tumb {
-    box-shadow: 0 3px 8px #dfdfdf;
+    box-shadow: 0 6px 16px #dfdfdf;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     display: flex;

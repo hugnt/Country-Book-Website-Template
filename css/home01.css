@@ -27,7 +27,7 @@ section .container{
     width: 37.5rem;
 }
 .left .authors{
-
+    margin-left: -1.5rem;
 }
 .active-img{
     filter: brightness(1) !important ;
@@ -61,6 +61,7 @@ section .container{
 
 /*Right*/
 .container .right{
+    margin-left: 1rem;
     display: flex;
 }
 .right h1{
@@ -69,7 +70,7 @@ section .container{
 }
 .title-author{
     margin-left: 4.5rem;
-    margin-top: 18.75rem;
+    margin-top: 15.75rem;
     width: 43.5rem;
     height: 18.75rem;
     animation-name: moveOnLeft;
@@ -279,7 +280,7 @@ section .container{
 .book-item img{
     display: block;
     border-radius: 5%;
-    width: 7.5rem;
+    width: 8rem;
     height: 12.75rem;
     box-shadow: 5px 8px #fff;
     margin-bottom: 7.5px;
@@ -341,10 +342,9 @@ section .container{
 }
 .timeline ul li span:hover{
     cursor: pointer;
-    transform: translateY(-10px);
     color: white;
 }
-.timeline ul li active{
+.timeline ul li:active{
     cursor: pointer;
     transform: scale(1.2);
 }

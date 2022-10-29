@@ -63,7 +63,7 @@ function Show_Banners(n)
     for(var i = 1; i <= n; i++)
     {
         $('.slide-items .list-items').innerHTML+=`
-        <li class="item">
+        <li class="item"> 
             <div class="img-box">
                 <img src="${books[i-1].ava}" alt="" class="img-item">
             </div>
@@ -171,7 +171,7 @@ function Show_Books(n,m)
         {
             no+=1;
             $('.book-lists').innerHTML+=`
-            <div class="book-item">
+            <div class="book-item" data-book="${i}_${j}">
             <div class="img-box"><img src="../images/${i}/${j}.jpg" alt="" class="book-img"></div>
                 <span class="author desc">${books[i-1].author}</span>
                 <span class="name main-title">${books[i-1].Poem[j-1]}</span>
@@ -186,6 +186,7 @@ Show_Books(3,3);
 }
 JS();
 //Search box
+
 var category = $('.category .list-options .option');
 var century = $('.century .list-options .option');
 category.click({param: category},ChangeOption);
@@ -220,5 +221,20 @@ btn_down.click(function(){
 
 $('.slide .slide-show').click(function(){
     window.location.href='./home01.html'
+});
+
+
+
+document.querySelectorAll('.writer-item .img-box').forEach((item,index)=>{
+    item.onclick=function(){
+        localStorage.indexOf=index;
+        window.location.href='./home02.html'
+        console.log(localStorage.indexOf)
+    }
+})
+
+$('.bi-lightbulb-off-fill').click(function(){
+    $('.search-box').toggleClass('bg-transparent-solid');
+    $('.search-box .select-option').toggleClass('select-option-light-mode');
 });
 

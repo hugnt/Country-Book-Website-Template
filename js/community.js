@@ -1,7 +1,165 @@
+import {booksData as books} from './layout.js'
 var change = 0;
 var switchLight=0;
 var myChart;
+
+
+function AddTagItem(n,m){
+    var setHtml = '';
+    var messageUser ='';
+    $('.slide-bar .list-items').html('');
+    for(var i = 1;i <= n;i++)
+    {
+        for(var k=1;k<=4;k++)
+        {
+            messageUser +=`
+            <div class="cmt-item swiper-slide">
+            <div class="cmt-user"><img src="../images/community/users/${k}.jpg" alt=""></div>
+            <div class="ms-box">
+                <div class="cmt-content">
+                    <p>His books are so great, I love the book Mysterious</p>
+                </div>
+                <div class="time"><span>12pm</span></div>
+            </div>
+        </div>
+            `
+        }
+        for(var j = 1;j <= m;j++)
+        {
+            setHtml += `
+            <div class="item" data-index="${i}">
+            <span class="main-title d-block">${books[i-1].author}</span>
+            <span class="desc">Read everything for a year</span>
+            <div class="img-item">
+                <div id="author">
+                    <img src="${books[i-1].ava}" alt="" class="">
+                </div>
+                <div class="icon1-spin">
+                    <div class="icon1 icon-img">
+                        <img src="../images/community/${i}_${j}.png" alt="">
+                    </div>
+                </div>
+                <div class="icon2-spin">
+                    <div class="icon2 icon-img">
+                        <img src="../images/community/${i}_${j+1}.png" alt="">
+                    </div>
+                </div>
+                <div class="icon3-spin ">
+                    <div class="icon3 icon-img">
+                        <img src="../images/community/${i}_${j+2}.png" alt="">
+                    </div>
+                </div>
+                <div class="icon4-spin">
+                    <div class="icon4">
+                        <img src="../images/community/${i}_${j+3}.png" alt="">
+                    </div>
+                </div>
+                <div class="icon5-spin">
+                    <div class="icon5">
+                        <img src="../images/community/${i}_${j+4}.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="common_book">
+                <div class="img-book imb1" data-book="${i}_${j}">
+                    <img src="../images/${i}/${j}.jpg" alt=""
+                        class="w-100">
+                </div>
+                <div class="info-book">
+                    <span class="desc d-block">Now it's your turn</span>
+                    <span class="main-title">${books[i-1].Poem[j-1]}</span>
+                    <div class="btn-read">
+                        <span>READ</span>
+                    </div>
+                </div>
+                <div class="list-recommand_book d-flex">
+                    <div class="img-book" data-book="${i}_${j}">
+                        <img src="../images/${i}/${j}.jpg" alt=""
+                            class="w-100">
+                    </div>
+                    <div class="img-book" data-book="${i}_${j+1}">
+                        <img src="../images/${i}/${j+1}.jpg" alt=""
+                            class="w-100">
+                    </div>
+                    <div class="img-book" data-book="${i}_${j+1}">
+                        <img src="../images/${i}/${j+2}.jpg" alt=""
+                            class="w-100">
+                    </div>
+                    <div class="img-book" data-book="${i}_${j+1}">
+                        <img src="../images/${i}/${j+3}.jpg" alt=""
+                            class="w-100">
+                    </div>
+                </div>
+
+            </div>
+            <div class="comment-box swiper">
+                <div class="swiper-wrapper">
+                   ${messageUser}
+                </div>
+            </div>
+            <div class="my_comment">
+                <div class="my_ava"><img src="../images/ava.png" alt=""></div>
+                <input type="text" name="" id="myCMT" placeholder="write your comment">
+                <button class="btn-send">Send</button>
+            </div>
+            <canvas id="myChart${i}" class="chart"></canvas>
+            <span class="btn-back"><i class="fa-regular fa-circle-left"></i></span>
+        </div>
+            `
+            
+        }
+        
+    }
+    $('.slide-bar .list-items').html(setHtml);
+}
+
+AddTagItem(3,1);
+
+
+
+const users =['Scott','Casemiro','Bruno','Fred','Eriksen','DeGea','Anthony','Ronaldo','Messi','Roben','Beckham','VanPersi','Cong Phuong','Quang Hai']
+function ShowTopReaders(n){
+    var setHtml = '';
+    $('.top-readers .list-readers').html('');
+    for(var i = 1;i <= n;i++)
+    {
+        setHtml += `
+        <li class="reader-item d-flex"><span class="No">${i}<img src="../images/community/users/${i}.jpg"
+                                alt="" class="ava"></span><span class="name">${users[i-1]}</span><span
+                            class="desc rate">${i*10000+i*i+111*i*i}</span></li>  `
+        
+    }
+    $('.top-readers .list-readers').html(setHtml);
+}
+ShowTopReaders(10);
+
+
+
+function ShowRecommendBooks(n,m){
+    var setHtml = '';
+    $('.hot-books .book-slides').html('');
+    for(var i = 1;i <= n;i++)
+    {
+        for(var j = 1;j <= m;j++)
+        {
+            setHtml += `
+            <div class="book-item swiper-slide "data-book="${i}_${j}">
+            <img src="../images/${i}/${j}.jpg" alt="">
+            <span class="desc d-block">${books[i-1].author}</span>
+             </div>
+            `
+            
+        }
+        
+    }
+    $('.hot-books .book-slides').html(setHtml);
+}
+ShowRecommendBooks(3,2);
+
+
 $(document).ready(function () {
+    
     $('.slide-bar .img-item').hover(function () {
         // $(this).find('#author img').toggleClass('zoom-out');
         $(this).find('#author').toggleClass('bigger');
@@ -13,7 +171,9 @@ $(document).ready(function () {
         $(".slide-bar  .item:not(:hover) span").css("display", "none");
         $(this).addClass('change-size');
         //add background
-        $(this).addClass('bg-img');
+        var bgIndex = $(this).attr('data-index');
+        $(this).addClass('bg-img'+bgIndex);
+        console.log("class:",'bg-img'+bgIndex);
 
         //add chart
         let ID=$(this).find('.chart').attr('id');
@@ -52,7 +212,9 @@ $(document).ready(function () {
         $(".slide-bar .item:not(:hover) span").css("display", "block");
         $(this).parent('.item').removeClass("change-size");
         //remove background
-        $(this).parent('.item').removeClass('bg-img');
+        $(this).parent('.item').removeClass('bg-img1');
+        $(this).parent('.item').removeClass('bg-img2');
+        $(this).parent('.item').removeClass('bg-img3');
 
         //remove chart
         myChart.destroy();
@@ -135,10 +297,10 @@ $(document).ready(function () {
                 <div class="cmt-user"><img src="../images/ava.png" alt=""></div>
             </div>
             <div class="cmt-item swiper-slide reply-cmt">
-                <div class="cmt-user"><img src="../images/community/elon-musk.png" alt=""></div>
+                <div class="cmt-user"><img src="../images/community/1_5.png" alt=""></div>
                 <div class="ms-box">
                     <div class="cmt-content add-content">
-                        <p>His books are so great, I love the book Mysterious</p>
+                        <p>Yes, you are right!</p>
                     </div>
                     <div class="time add-time"><span>`+ time + `</span></div>
                 </div>
@@ -173,13 +335,19 @@ $(document).ready(function () {
         },
 
     );
-    $('.common_book').click(
-        function () {
-            alert("clicked");
-        }
+    $('.common_book').click(function(){
+        $(this).find('.img-book').click();
+    });
+    
+    $('.img-book').click(function(){
+        var selectedBook  = $(this).attr("data-book");
+        localStorage.setItem("selectedBook",selectedBook);
+        console.log(selectedBook);
+        window.open('./bookmark_reading.html', '_blank');
+    });
+    
 
-    );
-
+    //Push Data
 
 });
 
